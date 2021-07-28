@@ -368,13 +368,15 @@ void loop()
   sampleTime = sampleTime % 1;
 }
 
-float position_threshold = 0.00015;
-// float p = 250.0;
-// float i_pid = 8.0;
-// float d = 0.0;
-float p = 150.0;
-float i_pid = 2.0;
-float d = 2.0;
+// float position_threshold = 0.00015; // how large the error can be, this is really low
+// float p = 92.0;
+// float i_pid = 0.25;
+// float d = 0.5;
+// new values
+float position_threshold = 0.0003;
+float p = 180.0;
+float i_pid = 12.0;
+float d = 0.2; 
 float last_joint_errors[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 float joint_errors[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 float total_joint_errors[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
