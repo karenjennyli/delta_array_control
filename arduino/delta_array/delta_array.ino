@@ -434,6 +434,8 @@ void moveDeltaPosition()
       else
       {
         analogWrite(motor_en[i], 0);
+        digitalWrite(motor_in1[i], HIGH);
+        digitalWrite(motor_in2[i], HIGH);
         digitalWrite(motor_in1[i], LOW);
         digitalWrite(motor_in2[i], LOW);
         joint_velocities[i] = 0.0;
@@ -446,6 +448,8 @@ void moveDeltaPosition()
     for(int i = 0; i < 12; i++)
     {
       analogWrite(motor_en[i], 0);
+      digitalWrite(motor_in1[i], HIGH);
+      digitalWrite(motor_in2[i], HIGH);
       digitalWrite(motor_in1[i], LOW);
       digitalWrite(motor_in2[i], LOW);
       joint_velocities[i] = 0.0;
