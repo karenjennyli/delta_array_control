@@ -43,6 +43,10 @@ float joint_positions[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0
 float joint_velocities[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 int motor_val[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
+// equations for calibration
+float coefficients[12] = {0.0425, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+float constants[12] = {-.00154, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+
 // STOP COMMAND
 // Stop Command Globals
 bool stop_flag = false;
@@ -149,6 +153,20 @@ void positionTrajectory()
   velocity_trajectory = false;
   current_trajectory_point = 0;
   last_time = 0.0;
+
+  calibrateDesiredPositions();
+}
+
+// Calibrate Desired Positions
+// adjust desired_joint_positions based on calibration
+void calibrateDesiredPositions()
+{
+  for (int i = 0; i < 12; i++)
+  {
+    float input = desired_joint_positions[0][i];
+    float diff = coefficients[i] * input + constants[i];
+    desired_joint_positions[0][i] = input - diff;
+  }
 }
 
 // Velocity Trajectory
