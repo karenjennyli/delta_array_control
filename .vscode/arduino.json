@@ -1,6 +1,6 @@
 {
     "board": "arduino:avr:uno",
     "programmer": "arduino:avrisp",
-    "port": "/dev/cu.usbmodem142301",
+    "port": "/dev/cu.usbmodem14201",
     "sketch": "arduino/delta_array/delta_array.ino"
 }

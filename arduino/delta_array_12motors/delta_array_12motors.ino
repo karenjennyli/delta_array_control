@@ -154,7 +154,7 @@ void positionTrajectory()
   current_trajectory_point = 0;
   last_time = 0.0;
 
-  calibrateDesiredPositions();
+  // calibrateDesiredPositions();
 }
 
 // Calibrate Desired Positions
